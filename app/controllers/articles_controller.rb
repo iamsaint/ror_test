@@ -1,13 +1,24 @@
 class ArticlesController < ApplicationController
   def index
-    @models = Articles.all
+    @models = Article.all
   end
 
-  def edit
-    @model = Articles.find params[:id]
+
+  def new
+    @model = Article.new
+  end
+
+  def update
+    @model = Article.find params[:article]
   end
 
   def show
-    @model = Articles.find params[:id]
+    @model = Article.find params[:id]
+  end
+
+  private
+
+  def articles_params
+    params.require(:articles).permit(:title, tags_attributes: [:id, :article_id, :name])
   end
 end

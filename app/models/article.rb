@@ -1,4 +1,6 @@
-class Articles < ActiveRecord::Base
+class Article < ActiveRecord::Base
+  has_many   :tags, :dependent => :destroy, :as => :tag
+  accepts_nested_attributes_for :tags
   has_attached_file :image,
                     :styles => lambda { |a|
                       {
