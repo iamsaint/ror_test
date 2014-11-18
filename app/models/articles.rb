@@ -5,5 +5,5 @@ class Articles < ActiveRecord::Base
                           :thumb => "100x100#",
                           :user_defined => "#{a.instance.width}x#{a.instance.height}#"}
                       },
-                    :default_style => :thumb,
+                    :default_style => :thumb
 end
