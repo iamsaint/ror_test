@@ -1,0 +1,12 @@
+<% @models.each do |model| %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag model.image.url %>
+        <%=model.created_at%>
+      </div>
+      <div class="col-md-10">
+        <a href="/articles/<%=model.id%>"><h1><%=model.title%></h1></a>
+        <p><%=model.short_text%></p>
+      </div>
+    </div>
+  <% end -%>
