@@ -31,13 +31,11 @@
           <li><a href="/">Статьи</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
+          <% if user_signed_in? %>
           <li>
-            <% if user_signed_in? %>
                 <%= link_to 'Профиль', edit_user_registration_path, :class => 'navbar-link' %>
-            <% else %>
-                <%= link_to "Регистрация", new_user_registration_path, :class => 'navbar-link'  %>
-            <% end %>
           </li>
+          <% end %>
           <li>
             <% if user_signed_in? %>
                 <%= link_to "Выход", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
