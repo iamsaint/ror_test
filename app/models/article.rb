@@ -9,5 +9,7 @@ class Article < ActiveRecord::Base
                       },
                     :default_style => :thumb
 
-  validates :title, :presence => true
+  validates :title, :presence => true, allow_blank: false
+  validates :short_text, :presence => true, allow_blank: false
+  validates :full_text, :presence => true, allow_blank: false
 end
