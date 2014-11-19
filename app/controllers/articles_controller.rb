@@ -3,9 +3,14 @@ class ArticlesController < ApplicationController
     @models = Article.all
   end
 
-
   def new
     @model = Article.new
+
+    if @model.save
+      redirect_to :action => 'index'
+    else
+      render :action => "new"
+    end
   end
 
   def update
@@ -18,7 +23,7 @@ class ArticlesController < ApplicationController
 
   private
 
-  def articles_params
-    params.require(:articles).permit(:title, tags_attributes: [:id, :article_id, :name])
+  def article_params
+    params.require(:articles).permit(:title)
   end
 end

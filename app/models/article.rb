@@ -8,4 +8,6 @@ class Article < ActiveRecord::Base
                           :user_defined => "#{a.instance.width}x#{a.instance.height}#"}
                       },
                     :default_style => :thumb
+
+  validates :title, :presence => true
 end
